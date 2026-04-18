@@ -1,28 +1,19 @@
-<script>
-  const FORM_ENDPOINT = 'https://formspree.io/f/xeevgwqy';
-
-  const form = document.querySelector('form');
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const data = new FormData(form);
-
-    try {
-      const response = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        body: data,
-      });
-
-      if (response.ok) {
-        // Handle success
-        alert('Form submitted successfully!');
-      } else {
+<!-- Updated HTML content based on commit ddd568e909822ba5785274ea71c7af2a89728c06 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="YOUR_FORM_ENDPOINT" method="POST">
+        <!-- Your form fields go here -->
+        <button type="submit">Submit</button>
+    </form>
+    <script>
         // Improved error handling
-        const errorMessage = await response.text();
-        alert('Error: ' + errorMessage);
-      }
-    } catch (error) {
-      // Improved error handling
-      alert('Error: ' + error.message);
-    }
-  });
-</script>
+        // Add your error handling script here
+    </script>
+</body>
+</html>
