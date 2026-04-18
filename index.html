@@ -214,11 +214,11 @@
     Kubernetes, pipelines, cloud infra, and AI agents. We're building it now.
   </p>
 
-  <div class="form-row">
-    <input class="email-input" type="email" id="emailInput" placeholder="you@company.com" />
-    <button class="submit-btn" onclick="handleJoin()">Join waitlist</button>
-  </div>
-  <p class="note" id="formNote">Be first to know when we launch. No spam, ever.</p>
+  <form class="form-row" action="https://formspree.io/f/xoqpkyzz" method="POST">
+    <input class="email-input" type="email" name="email" placeholder="you@company.com" required />
+    <button class="submit-btn" type="submit">Join waitlist</button>
+  </form>
+  <p class="note">Be first to know when we launch. No spam, ever.</p>
 
   <div class="divider"></div>
 
@@ -252,49 +252,6 @@
   <div class="footer-logo">Orch<span>Pro</span>.com</div>
   <div>© 2026 · Built with intent</div>
 </footer>
-
-<script>
-  function handleJoin() {
-    var input = document.getElementById('emailInput');
-    var note = document.getElementById('formNote');
-    var val = input.value.trim();
-
-    if (!val || !val.includes('@') || !val.includes('.')) {
-      note.textContent = 'Please enter a valid email address.';
-      note.className = 'note error';
-      input.focus();
-      return;
-    }
-
-    // Replace this URL with your Tally / Mailchimp / Formspree endpoint
-    var FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
-
-    fetch(FORM_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: val })
-    })
-    .then(function(res) {
-      if (res.ok) {
-        note.textContent = "You're on the list! We'll be in touch.";
-        note.className = 'note success';
-        input.value = '';
-      } else {
-        throw new Error('Form error');
-      }
-    })
-    .catch(function() {
-      // Fallback: show success anyway (swap for real handler)
-      note.textContent = "You're on the list! We'll be in touch.";
-      note.className = 'note success';
-      input.value = '';
-    });
-  }
-
-  document.getElementById('emailInput').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') handleJoin();
-  });
-</script>
 
 </body>
 </html>
